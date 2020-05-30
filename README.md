@@ -8,9 +8,9 @@ Using [Web Monetization](https://github.com/interledger/rfcs/blob/master/0028-we
  
 The only way to guarantee that is by having a service that actually accepts Interledger packets and communicates to your backend.
 
-Vanilla Express Demo uses **Vanilla Service** to validate payments and provides Web Monetization features and analytics.
+Vanilla Express Demo uses **Vanilla Service** to validate payments and provides Web Monetization features.
 
-The interaction between the Express Server and **Vanilla Service** is provided by the API.
+The interaction between the server and **Vanilla Service** is provided by the API.
 
 ## How it Works
 
@@ -19,7 +19,7 @@ The interaction between the Express Server and **Vanilla Service** is provided b
 * The visitor arrives on your page.
 
 * User sends request for specific content that is protect by Web Monetization
-  - If the Server validates payment successfully, the visitor receives content
+  - If the server validates payment successfully, the visitor receives content
   - If the validation fails, the visitor receives error or non-monetized version
 
 ### Installation and Setup
