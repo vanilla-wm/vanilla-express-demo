@@ -1,0 +1,45 @@
+<html>
+<head>
+    <meta name="monetization" content="$coil.xrptipbot.com/zRBtR6HsRTuYITBzX6pZJQ"/>
+    <title>Vanilla Express Demo</title>
+</head>
+<style>
+    #content > div {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .hidden {
+        display: none;
+    }
+</style>
+<script>
+    if (document.monetization) {
+        var loaded = false
+
+        document.monetization.addEventListener('monetizationstart', () => {
+            document.getElementById('monetized').classList.remove('hidden')
+            document.getElementById('loader').classList.add('hidden')
+        })
+
+        document.monetization.addEventListener('monetizationprogress', ({detail:{requestId}}) => {
+            if (!loaded) {
+                loaded = true
+                // load content that will be validated on Backend
+                document.getElementById('content').innerHTML = `<div>Content validated by Vanilla API:&nbsp;<img src="/image/${requestId}"/></div>`
+            }
+        })
+    }
+</script>
+<body style="text-align: center;">
+<p>
+    <strong id="loader">Loading Web Monetization Content</strong>
+    <strong id="non-monetized" class="hidden">😔 Could not verify payments</strong>
+    <strong id="monetized" class="hidden">Web Monetization is Active
+        <div id="content">
+        </div>
+    </strong>
+</p>
+</body>
+</html>

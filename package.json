@@ -1,0 +1,13 @@
+{
+  "name": "@vanilla/express-demo",
+  "description": "Vanilla Express Demo",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "express": "^4.17.1"
+  },
+  "devDependencies": {}
+}
