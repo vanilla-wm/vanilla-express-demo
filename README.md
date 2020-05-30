@@ -31,7 +31,7 @@ The interaction between the Express Server and Vanilla Service is provided by th
 First, install dependencies.
 
 ```shell
-    yarn install
+yarn install
 ```
 
 Start the server. (port 3000)
