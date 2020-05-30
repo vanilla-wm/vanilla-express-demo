@@ -40,4 +40,4 @@ yarn start
 ```
 
 Examples: 
-    * Load monetized image ( `localhost:3000/`)
+* Load image for WM users and validate payment ( `localhost:3000/`)
