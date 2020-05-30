@@ -3,12 +3,12 @@ var express = require("express");
 
 const log = console.info.bind(
     console,
-    `[ \x1b[32minfo\x1b[0m ] [Vanilla-express-demo]: `
+    `[ \x1b[32minfo\x1b[0m ] [vanilla-express-demo]: `
 )
 
 const error = console.error.bind(
     console,
-    `[ \x1b[31merror\x1b[0m ] [Vanilla-express-demo]: `
+    `[ \x1b[31merror\x1b[0m ] [vanilla-express-demo]: `
 )
 
 module.exports = {

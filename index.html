@@ -2,6 +2,10 @@
     <head>
         <meta name="monetization" content="$coil.xrptipbot.com/zRBtR6HsRTuYITBzX6pZJQ"/>
         <title>Vanilla Express Demo</title>
+        <link
+                href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&display=swap"
+                rel="stylesheet"
+        />
     </head>
     <style>
         #content {
@@ -11,7 +15,15 @@
         .hidden {
             display: none;
         }
+
+        h2, button{
+            font-family: 'Space Mono',sans-serif;
+            font-weight: normal;
+        }
+
         body{
+            font-family: 'Space Mono',sans-serif;
+            font-weight: normal;
             background-color: black;
             color: white;
         }
@@ -63,7 +75,7 @@
 
         function showMonetizedImage() {
             if (loaded && requestId) {
-                console.log("[Vanilla-express-demo]: Loading monetized image from Express Server...")
+                console.log("[vanilla-express-demo]: Loading monetized image from Express Server...")
 
                 // Request content that you want to validate on your back-end and serve for WM users
                 document.getElementById('content').innerHTML = `<img height="500" src="/image/${requestId}"/>`
