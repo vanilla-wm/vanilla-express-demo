@@ -1,45 +1,83 @@
 <html>
-<head>
-    <meta name="monetization" content="$coil.xrptipbot.com/zRBtR6HsRTuYITBzX6pZJQ"/>
-    <title>Vanilla Express Demo</title>
-</head>
-<style>
-    #content > div {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-    }
+    <head>
+        <meta name="monetization" content="$coil.xrptipbot.com/zRBtR6HsRTuYITBzX6pZJQ"/>
+        <title>Vanilla Express Demo</title>
+    </head>
+    <style>
+        #content {
+            margin-top: 32px;
+        }
 
-    .hidden {
-        display: none;
-    }
-</style>
-<script>
-    if (document.monetization) {
+        .hidden {
+            display: none;
+        }
+        body{
+            background-color: black;
+            color: white;
+        }
+
+        body > div {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+        }
+
+        button {
+            display: block;
+            text-align: center;
+            border: none;
+            padding: 14px 16px;
+            font-weight: bold;
+            background-color: #FEB611;
+            border-radius: 14px;
+            margin: 48px auto 0 auto;
+            cursor: pointer;
+        }
+    </style>
+    <script>
         var loaded = false
+        var requestId = null
+         setTimeout(()=>{
+              if(!loaded) {
+                  document.getElementById('non-monetized').classList.remove('hidden')
+                  document.getElementById('loader').classList.add('hidden')
+              }
+         },10000)
 
-        document.monetization.addEventListener('monetizationstart', () => {
-            document.getElementById('monetized').classList.remove('hidden')
-            document.getElementById('loader').classList.add('hidden')
-        })
+        if (document.monetization) {
 
-        document.monetization.addEventListener('monetizationprogress', ({detail:{requestId}}) => {
-            if (!loaded) {
-                loaded = true
-                // load content that will be validated on Backend
-                document.getElementById('content').innerHTML = `<div>Content validated by Vanilla API:&nbsp;<img src="/image/${requestId}"/></div>`
+            document.monetization.addEventListener('monetizationstart', () => {
+                document.getElementById('monetized').classList.remove('hidden')
+                document.getElementById('loader').classList.add('hidden')
+            })
+
+            document.monetization.addEventListener('monetizationprogress', ({detail}) => {
+                if (!loaded) {
+                    document.getElementById('button').classList.remove('hidden')
+                    loaded = true
+                    requestId = detail.requestId
+                }
+            })
+        }
+
+        function showMonetizedImage() {
+            if (loaded && requestId) {
+                console.log("[Vanilla-express-demo]: Loading monetized image from Express Server...")
+
+                // Request content that you want to validate on your back-end and serve for WM users
+                document.getElementById('content').innerHTML = `<img height="500" src="/image/${requestId}"/>`
             }
-        })
-    }
-</script>
-<body style="text-align: center;">
-<p>
-    <strong id="loader">Loading Web Monetization Content</strong>
-    <strong id="non-monetized" class="hidden">😔 Could not verify payments</strong>
-    <strong id="monetized" class="hidden">Web Monetization is Active
-        <div id="content">
+        }
+    </script>
+    <body style="text-align: center;">
+        <div>
+            <h2 id="loader">Loading Web Monetization...</h2>
+            <h2 id="non-monetized" class="hidden">😔 Web Monetization is not Active</h2>
+            <h2 id="monetized" class="hidden">Web Monetization is Active</h2>
+            <button id="button" onclick="showMonetizedImage()" class="hidden">Load Exclusive Image</button>
+            <div id="content">
+            </div>
         </div>
-    </strong>
-</p>
-</body>
+    </body>
 </html>

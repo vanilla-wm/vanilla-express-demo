@@ -1,10 +1,23 @@
 const path = require('path');
 var express = require("express");
 
+const log = console.info.bind(
+    console,
+    `[ \x1b[32minfo\x1b[0m ] [Vanilla-express-demo]: `
+)
+
+const error = console.error.bind(
+    console,
+    `[ \x1b[31merror\x1b[0m ] [Vanilla-express-demo]: `
+)
+
 module.exports = {
-    vanillaProtected: async (req, res, next) => {
+    monetized: async (req, res, next) => {
         const {requestId} = req.params
-        console.log(requestId)
+        log(`Validating requestId: ${requestId}`)
+
+        // Request for content must be called after successful WM validation on client.
+        error(`Couldn't verify requestId: ${requestId}`)
         setTimeout(()=>next(),2000)
     },
     proof: async(req, res) => {

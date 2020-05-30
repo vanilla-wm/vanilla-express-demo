@@ -28,7 +28,7 @@ The interaction between the Express Server and **Vanilla Service** is provided b
 
 ### Installation and Setup
 
-First, install dependencies.
+Install dependencies.
 
 ```shell
 yarn install
@@ -39,4 +39,5 @@ Start the server. (port 3000)
 yarn start
 ```
 
-Go to `localhost:3000/`.
+Examples: 
+    * Load monetized image ( `localhost:3000/`)

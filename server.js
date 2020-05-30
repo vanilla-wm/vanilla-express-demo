@@ -1,15 +1,15 @@
 const path = require('path');
 var express = require("express")
-var vanillaMiddleware =require("./middleware")
+var middleware =require("./middleware")
 var app = express()
 
 const {
-    vanillaProtected,
+    monetized,
     proof
-} = vanillaMiddleware
+} = middleware
 
-app.get('/image/:requestId',vanillaProtected,(req, res)=>{
-    res.sendFile(path.join(__dirname+'/content/wm-icon.svg'));
+app.get('/image/:requestId',monetized,(req, res)=>{
+    res.sendFile(path.join(__dirname+'/content/monetized-image.jpg'));
 })
 
 app.get('/',(req,res)=>{
