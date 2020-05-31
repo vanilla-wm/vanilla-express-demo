@@ -18,7 +18,7 @@ The interaction between the server and **Vanilla Service** is provided by the AP
 
 * The visitor arrives on your page.
 
-* User sends request for specific content that is protect by Web Monetization
+* The visitor sends request for specific content that is protect by **Vanilla Service**
   - If the server validates payment successfully, the visitor receives content
   - If the validation fails, the visitor receives error or non-monetized version
 
