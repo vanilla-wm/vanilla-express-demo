@@ -12,10 +12,16 @@ const error = console.error.bind(
 )
 
 
-const PROOF_QUERY = `
+const getProofQuery =(requestId)=> `
 {
-    proof {
+    proof(requestId: "${requestId}") {
         total  
+        rate
+        metadata{
+          requestId
+          clientId
+          contentId
+        }
     }
 }`
 
@@ -32,9 +38,10 @@ const getContentProof = async ({onSuccess, onFailure, requestId}) => {
                 'Authorization': `Basic ${Buffer.from(`${CLIENT_ID}:${CLIENT_SECRET}`).toString('base64')}`
             },
             body: JSON.stringify({
-                query: PROOF_QUERY
+                query: getProofQuery(requestId)
             })
         });
+
         if (response.status === 200) {
             return response.json().then(data => onSuccess(data)).catch(e => onFailure(e))
         }
@@ -54,19 +61,16 @@ module.exports = {
             res.send()
         }
 
-        const onSuccess = () => {
+        const onSuccess = (data) => {
+            console.log(data)
             log(`RequestId verified: ${requestId}`)
+            log(`Proof data:`,data)
             next()
         }
 
         log(`Verifying requestId: ${requestId}`)
         return getContentProof({onSuccess, onFailure, requestId})
-    },
-    proof: async (req, res) => {
-        res.send({
-            proof: "xxx"
-        })
-    },
+    }
 }
 
 
