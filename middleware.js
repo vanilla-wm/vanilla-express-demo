@@ -61,7 +61,7 @@ module.exports = {
             res.send()
         }
 
-        const onSuccess = (data) => {
+        const onSuccess = ({data}) => {
             console.log(data)
             log(`RequestId verified: ${requestId}`)
             log(`Proof data:`,data)
