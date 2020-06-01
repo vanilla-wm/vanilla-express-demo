@@ -18,7 +18,7 @@ The interaction between the server and **Vanilla Service** is provided by the 
 
 [Sandbox](https://ty7rd.sse.codesandbox.io/)
 
-https://codesandbox.io/s/vanilla-express-demo-ty7rd
+[Live Code](https://codesandbox.io/s/vanilla-express-demo-ty7rd)
 
 ## How it Works
 
