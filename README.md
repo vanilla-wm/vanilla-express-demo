@@ -1,6 +1,7 @@
 # Vanilla Express Demo
 > Securely enable your content for Web Monetization users without depending on ILP stack
 
+- [Live Demo](#live-demo)
 - [How it Works](#how-it-works)
 - [Installation and Setup](#installation-and-setup)
 - [Example](#example)
@@ -12,6 +13,9 @@ The only way to guarantee this, is by running a service that accepts Interledger
 Vanilla Express Demo uses **Vanilla Service** to validate payments.
 
 The interaction between the server and **Vanilla Service** is provided by the simple API.
+
+## Live Demo
+[Sandbox](https://codesandbox.io/s/vanilla-express-demo-ty7rd)
 
 ## How it Works
 
