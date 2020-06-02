@@ -15,7 +15,7 @@ Vanilla Express Demo uses **Vanilla Service** to validate payments.
 The interaction between the server and **Vanilla Service** is provided by the simple API.
 
 ## Live Demo
-[Snadbox](https://ty7rd.sse.codesandbox.io/)
+[Sandbox](https://ty7rd.sse.codesandbox.io/)
 
 [Live Code](https://codesandbox.io/s/vanilla-express-demo-ty7rd)
 
